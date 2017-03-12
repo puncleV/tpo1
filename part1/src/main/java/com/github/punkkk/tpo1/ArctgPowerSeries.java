@@ -1,6 +1,6 @@
 package com.github.punkkk.tpo1;
 
-public class ArctgPowerSeries
+  class ArctgPowerSeries
 {
     private Double getSeriesMember(Double x, int n){
         Double dividend = Math.pow(-1, ( n - 1 )) * Math.pow(x, ( 2 * n - 1));
@@ -10,11 +10,9 @@ public class ArctgPowerSeries
     public Double getArctg(Double value, Double accuracy){
         Expect.notNullArgument(value, "value", "ArctgPowerSeries.getArctg value can not be null");
         Expect.notNullArgument(accuracy, "accuracy", "ArctgPowerSeries.getArctg accuracy can not be null");
-        Double result = this.getSeriesMember(value, 1);
-        Double oldResult = Double.MAX_VALUE;
-        for (int i = 2; Math.abs(oldResult - result) > accuracy; i++) {
-            oldResult = result;
-            result += this.getSeriesMember(value, i);
+        Double newMember, result = 0.;
+        for (int i = 1; Math.abs(newMember = this.getSeriesMember(value, i)) > accuracy; i++) {
+            result += newMember;
         }
         return result;
     }
