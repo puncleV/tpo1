@@ -10,11 +10,12 @@ public class ArctgPowerSeries
     public Double getArctg(Double value, Double accuracy){
         Expect.notNullArgument(value, "value", "ArctgPowerSeries.getArctg value can not be null");
         Expect.notNullArgument(accuracy, "accuracy", "ArctgPowerSeries.getArctg accuracy can not be null");
-        Double result = this.getSeriesMember(value, 1);
-        Double oldResult = Double.MAX_VALUE;
-        for (int i = 2; Math.abs(oldResult - result) > accuracy; i++) {
-            oldResult = result;
-            result += this.getSeriesMember(value, i);
+        Double result = 0.;
+        Double newMember = 0.;
+//        Double oldResult = Double.MAX_VALUE;
+        for (int i = 1; Math.abs(newMember = this.getSeriesMember(value, i)) > accuracy; i++) {
+            result += newMember;
+//            result += this.getSeriesMember(value, i);
         }
         return result;
     }
