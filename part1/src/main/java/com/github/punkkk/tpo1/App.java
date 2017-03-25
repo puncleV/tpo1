@@ -6,7 +6,7 @@ package com.github.punkkk.tpo1;
 public class App {
     public static void main( String[] args )
     {
-        ArctgPowerSeries arctg = new ArctgPowerSeries();
-        System.out.println( arctg.getArctg( 1., 0.001) );
+        ArctgPowerSeries arctg = new ArctgPowerSeries(-1, 0.001);
+        System.out.println( arctg.getValue() );
     }
 }

@@ -9,4 +9,10 @@ class Expect
         }
         return value;
     }
+    static double absLesserThanOne(double value, String argName, String messageFormat){
+        if(Math.abs(value) > 1){
+            throw new IllegalArgumentException(String.format(messageFormat, argName));
+        }
+        return value;
+    }
 }
