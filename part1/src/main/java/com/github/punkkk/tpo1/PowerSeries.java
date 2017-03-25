@@ -2,8 +2,8 @@ package com.github.punkkk.tpo1;
 
 public class PowerSeries {
     public PowerSeries(double argumentValue, double error) {
-        this.error = Expect.notNullArgument(error, "error", "PowerSeries: error can not be null");
-        this.argumentValue = Expect.notNullArgument(argumentValue, "argumentValue", "PowerSeries: value can not be null");
+        this.setArgumentValue(argumentValue);
+        this.setError(error);
     }
 
     public double getError() {

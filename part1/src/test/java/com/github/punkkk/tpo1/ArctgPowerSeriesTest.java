@@ -35,7 +35,7 @@ public class ArctgPowerSeriesTest
                 0.001,
                 0.000001
         };
-        ArctgPowerSeries aps = new ArctgPowerSeries(0, 0);
+        ArctgPowerSeries aps = new ArctgPowerSeries(0, 0.1);
         for( int i = 0; i < 5; i++){
             aps.setArgumentValue(tableArgumentValues[i]);
             for ( int j = 0; j < 3; j++) {
@@ -58,8 +58,8 @@ public class ArctgPowerSeriesTest
                 0.75,
                 1
         };
-        ArctgPowerSeries apsPositive = new ArctgPowerSeries(0, 0.0001);
-        ArctgPowerSeries apsNegative = new ArctgPowerSeries(0, 0.0001);
+        ArctgPowerSeries apsPositive = new ArctgPowerSeries(0, 0.001);
+        ArctgPowerSeries apsNegative = new ArctgPowerSeries(0, 0.001);
 
         for(int i = 0; i < 5; i++){
             apsNegative.setArgumentValue(-argumentValues[i]);
@@ -69,5 +69,17 @@ public class ArctgPowerSeriesTest
                     apsNegative.getValue(),
                     apsPositive.getValue());
         }
+    }
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void infinitySeries(){
+        ArctgPowerSeries aps = new ArctgPowerSeries(2, 0.0001);
+    }
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void negativeError(){
+        ArctgPowerSeries aps = new ArctgPowerSeries(0, -1);
+    }
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void nullError(){
+        ArctgPowerSeries aps = new ArctgPowerSeries(0, -1);
     }
 }

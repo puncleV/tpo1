@@ -4,12 +4,15 @@ package com.github.punkkk.tpo1;
       extends PowerSeries
 {
     public ArctgPowerSeries(double argumentValue, double error) {
+        super(argumentValue, error);
+    }
 
-        super(Expect.absLesserThanOne( argumentValue, "argumentValue", "ArctgPowerSeries: |argumentValue| must be <= 1"), error);
-//        if(this.argumentValue < 0) {
-//            this.minus = true;
-//            this.argumentValue = -1. * this.argumentValue;
-//        }
+    public void setError(double error){
+        this.error = Expect.positiveNotZero(error, "error", "ArctgPowerSeries.setError: error must be bigger than 0");
+    }
+
+    public void setArgumentValue(double argumentValue){
+        this.argumentValue = Expect.absLesserThanOne( argumentValue, "argumentValue.setArgumentValue", "ArctgPowerSeries: |argumentValue| must be <= 1");
     }
 
     private Double getNthSeriesMember(int n){
