@@ -7,11 +7,11 @@ package com.github.punkkk.tpo1;
         Double divider = 2 * (double)n - 1;
         return dividend / divider;
     }
-    public Double getArctg(Double value, Double accuracy){
+    public Double getArctg(Double value, Double error){
         Expect.notNullArgument(value, "value", "ArctgPowerSeries.getArctg value can not be null");
-        Expect.notNullArgument(accuracy, "accuracy", "ArctgPowerSeries.getArctg accuracy can not be null");
+        Expect.notNullArgument(error, "error", "ArctgPowerSeries.getArctg error can not be null");
         Double newMember, result = 0.;
-        for (int i = 1; Math.abs(newMember = this.getSeriesMember(value, i)) > accuracy; i++) {
+        for (int i = 1; Math.abs(newMember = this.getSeriesMember(value, i)) > error; i++) {
             result += newMember;
         }
         return result;
