@@ -19,5 +19,6 @@
   <modules>
     <module>part1</module>
     <module>defensive-programming-helper</module>
+      <module>part3</module>
   </modules>
 </project>
