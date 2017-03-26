@@ -7,6 +7,6 @@ public class App {
     public static void main( String[] args )
     {
         ArctgPowerSeries arctg = new ArctgPowerSeries(-1, 0.001);
-        System.out.println( arctg.getValue() );
+        System.out.println( arctg.calculate() );
     }
 }

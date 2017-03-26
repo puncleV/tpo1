@@ -1,11 +1,5 @@
 package com.github.punkkk.tpo1;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import org.junit.Before;
-import org.junit.Rule;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -40,7 +34,7 @@ public class ArctgPowerSeriesTest
             aps.setArgumentValue(tableArgumentValues[i]);
             for ( int j = 0; j < 3; j++) {
                 aps.setError(errors[j]);
-                double arctgValue = aps.getValue();
+                double arctgValue = aps.calculate();
                 assertTrue(Math.abs(arctgValue-tableResultValues[i]) <= errors[j]);
                 System.out.printf("\nexpected value:%f\nresult value:%f\nerror:%f\n",
                         tableResultValues[i],
@@ -64,10 +58,10 @@ public class ArctgPowerSeriesTest
         for(int i = 0; i < 5; i++){
             apsNegative.setArgumentValue(-argumentValues[i]);
             apsPositive.setArgumentValue(argumentValues[i]);
-            assertTrue(Math.abs(apsNegative.getValue()) == apsPositive.getValue());
+            assertEquals(Math.abs(apsNegative.calculate()), (double)apsPositive.calculate());
             System.out.printf("\n%f = -%f\n",
-                    apsNegative.getValue(),
-                    apsPositive.getValue());
+                    apsNegative.calculate(),
+                    apsPositive.calculate());
         }
     }
     @org.junit.Test(expected = IllegalArgumentException.class)
