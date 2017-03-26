@@ -52,13 +52,14 @@ public class ArctgPowerSeriesTest
                 0.75,
                 1
         };
-        ArctgPowerSeries apsPositive = new ArctgPowerSeries(0, 0.001);
-        ArctgPowerSeries apsNegative = new ArctgPowerSeries(0, 0.001);
+        double delta = 0.001;
+        ArctgPowerSeries apsPositive = new ArctgPowerSeries(0, delta);
+        ArctgPowerSeries apsNegative = new ArctgPowerSeries(0, delta);
 
         for(int i = 0; i < 5; i++){
             apsNegative.setArgumentValue(-argumentValues[i]);
             apsPositive.setArgumentValue(argumentValues[i]);
-            assertEquals(Math.abs(apsNegative.calculate()), (double)apsPositive.calculate());
+            assertEquals(Math.abs(apsNegative.calculate()), (double)apsPositive.calculate(), delta);
             System.out.printf("\n%f = -%f\n",
                     apsNegative.calculate(),
                     apsPositive.calculate());
