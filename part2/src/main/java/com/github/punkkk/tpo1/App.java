@@ -12,7 +12,7 @@ public class App
     {
         Integer []a = {10, 3, 5};
 
-        BucketSort ololo = new BucketSort(a, 105);
+        BucketSort ololo = new BucketSort(a, 10);
         System.out.println(Arrays.toString(ololo.getSortedArray()));
     }
 }

@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BucketSort{
-    ArrayList<ArrayList<Integer>> buckets;
-    Integer []arrayToSort;
-    int maxValue;
-    int bucketsCount;
-    int divider;
+    private ArrayList<ArrayList<Integer>> buckets;
+    private Integer []arrayToSort;
+    private int maxValue;
+    private int bucketsCount;
+    private int divider;
     BucketSort(Integer[] arrayToSort, int maxValue) {
         init(arrayToSort, maxValue, (int) Math.pow(10, Math.floor(Math.log10(maxValue))));
     }
