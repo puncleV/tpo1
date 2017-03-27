@@ -14,12 +14,13 @@ public class BucketSort{
     BucketSort(Integer[] arrayToSort, int maxValue) {
         init(arrayToSort, maxValue, (int) Math.pow(10, Math.floor(Math.log10(maxValue))));
     }
-    BucketSort(Integer[] arrayToSort, int maxValue, int divider) {
+    private BucketSort(Integer[] arrayToSort, int maxValue, int divider) {
         init(arrayToSort, maxValue, divider);
     }
+
     void init(Integer[] arrayToSort, int maxValue, int divider){
         this.arrayToSort = Expect.notNullArgument(arrayToSort, "arrayToSort", "\nBucketSort: %s can not be null");
-        this.maxValue = maxValue;
+        this.maxValue = Expect.positiveNotZero(maxValue, "maxValue", "\nBucketSort: %s must be bigger than 0");
         this.divider = divider;
         bucketsCount = this.getBucketsCount() + 1;
         buckets = new ArrayList<ArrayList<Integer>>(bucketsCount);
