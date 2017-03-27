@@ -70,6 +70,10 @@ public class ArctgPowerSeriesTest
         ArctgPowerSeries aps = new ArctgPowerSeries(2, 0.0001);
     }
     @org.junit.Test(expected = IllegalArgumentException.class)
+    public void infinitySeriesMinus(){
+        ArctgPowerSeries aps = new ArctgPowerSeries(-1.0001, 0.0001);
+    }
+    @org.junit.Test(expected = IllegalArgumentException.class)
     public void negativeError(){
         ArctgPowerSeries aps = new ArctgPowerSeries(0, -1);
     }
