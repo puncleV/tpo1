@@ -17,17 +17,27 @@ public class RoomTest
     }
 
     @Test
-    public void doorsTest()
+    public void doorsClosedTest()
     {
         Assert.assertFalse(room.getDoors().isOpen());
+    }
+
+    @Test
+    public void doorsTest()
+    {
         room.getDoors().open();
         Assert.assertTrue(room.getDoors().isOpen());
     }
 
     @Test
-    public void goTest()
+    public void beforeGoTest()
     {
         Assert.assertEquals(room.getHumansInRoom().size(), 0);
+    }
+
+    @Test
+    public void goTest()
+    {
         human.go(room);
         Assert.assertEquals(room.getHumansInRoom().size(), 1);
     }

@@ -23,8 +23,13 @@ public class ScreamTest
     }
 
     @Test
-    public void screamTest() {
+    public void beforeScreamTest()
+    {
         Assert.assertEquals(scream.isShout() || noise.isShout(), false);
+    }
+
+    @Test
+    public void screamTest() {
         scream.suddenlyShout();
         noise.suddenlyShout();
         Assert.assertEquals(scream.isShout() && noise.isShout(), true);

@@ -47,9 +47,14 @@ public class HumanTest
     }
 
     @Test
-    public void pushTest()
+    public void beforePushTest()
     {
         Assert.assertFalse(liveryMan.isDown());
+    }
+
+    @Test
+    public void pushTest()
+    {
         angryMan.push(liveryMan);
         Assert.assertTrue(liveryMan.isDown());
     }
